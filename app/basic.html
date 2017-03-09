@@ -1,0 +1,96 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="base.css">
+  <!--<script src="data_access.js"></script>
+  <script type="text/javascript">
+
+  </script>-->
+</head>
+<body class="subpage">
+  <form class="basic">
+    <div><label for="name">Name: </label><input type="text" name="name" id="name"></div>
+    <div><label for="sec">SEC: </label><input type="text" name="sec" id="sec" value="Loading..."></div>
+    <div><label for="vocation">Vocation: </label><select name="vocation" id="vocation">
+      <option value="loading">Loading...</option>
+    </select></div>
+    <div><label for="joss">Joss: </label><input type="text" name="joss"></div>
+  </form>
+  <div class="heading">
+    <span>Characteristics</span>
+  </div>
+
+  <form>
+    <div>
+      <div class="stats">
+        <span><label for="mental">Mental</label><input type="text" name="mental" class="stats"></span>
+        <span><label for="physical">Physical</label><input type="text" name="physical" class="stats"></span>
+        <span><label for="spiritual">Spiritual</label><input type="text" name="spiritual" class="stats"></span>
+      </div>
+      <div class="stats">
+        <span></span>
+        <span><label for="physicalrl">Recovery Level</label><input type="text" name="physicalrl" class="stats"></span>
+        <span></span>
+      </div>
+      <div class="stats">
+        <span><label for="mentalel">Effect Level</label><input type="text" name="mentalel" class="stats"></span>
+        <span><label for="physicalwl">Wound Level</label><input type="text" name="physicalwl" class="stats"></span>
+        <span><label for="spiritualel">Effect Level</label><input type="text" name="spiritualel" class="stats"></span>
+      </div>
+      <div class="stats">
+        <span></span>
+        <span><label for="physicalcl">Critical Level</label><input type="text" name="physicalcl" class="stats"></span>
+        <span></span>
+      </div>
+    </div>
+    <div>
+      <div class="stats">
+        <span><label for="mmcat">Mnemonic</label><input type="text" name="mmcat" id="mmcat" class="stats"></span>
+        <span><label for="pmcat">Muscular</label><input type="text" name="pmcat" id="pmcat" class="stats"></span>
+        <span><label for="smcat">Metaphysical</label><input type="text" name="smcat" id="smcat" class="stats"></span>
+      </div>
+      <div class="stats">
+        <span class="minor"><label for="mmcap">MMCap</label><input type="text" name="mmcap" class="stats"></span>
+        <span class="minor"><label for="pmcap">PMCap</label><input type="text" name="pmcap" class="stats"></span>
+        <span class="minor"><label for="smcap">SMCap</label><input type="text" name="smcap" class="stats"></span>
+      </div>
+      <div class="stats">
+        <span class="minor"><label for="mmpow">MMPow</label><input type="text" name="mmpow" class="stats"></span>
+        <span class="minor"><label for="pmpow">PMPow</label><input type="text" name="pmpow" class="stats"></span>
+        <span class="minor"><label for="smpow">SMPow</label><input type="text" name="smpow" class="stats"></span>
+      </div>
+      <div class="stats">
+        <span class="minor"><label for="mmspd">MMSpd</label><input type="text" name="mmspd" class="stats"></span>
+        <span class="minor"><label for="pmspd">PMSpd</label><input type="text" name="pmspd" class="stats"></span>
+        <span class="minor"><label for="smspd">SMSpd</label><input type="text" name="smspd" class="stats"></span>
+      </div>
+    </div>
+    <div class="stats">
+      <span><label for="mrcat">Reasoning</label><input type="text" name="mrcat" id="mrcat" class="stats"></span>
+      <span><label for="pncat">Neural</label><input type="text" name="pncat" id="pncat" class="stats"></span>
+      <span><label for="spcat">Psychic</label><input type="text" name="spcat" id="spcat" class="stats"></span>
+    </div>
+    <div class="stats">
+      <span class="minor"><label for="mrcap">MRCap</label><input type="text" name="mrcap" class="stats"></span>
+      <span class="minor"><label for="pncap">PNCap</label><input type="text" name="pncap" class="stats"></span>
+      <span class="minor"><label for="spcap">SPCap</label><input type="text" name="spcap" class="stats"></span>
+    </div>
+    <div class="stats">
+      <span class="minor"><label for="mrpow">MRPow</label><input type="text" name="mrpow" class="stats"></span>
+      <span class="minor"><label for="pnpow">PNPow</label><input type="text" name="pnpow" class="stats"></span>
+      <span class="minor"><label for="sppow">SPPow</label><input type="text" name="sppow" class="stats"></span>
+    </div>
+    <div class="stats">
+      <span class="minor"><label for="mrspd">MRSpd</label><input type="text" name="mrspd" class="stats"></span>
+      <span class="minor"><label for="pnspd">PNSpd</label><input type="text" name="pnspd" class="stats"></span>
+      <span class="minor"><label for="spspd">SPSpd</label><input type="text" name="spspd" class="stats"></span>
+    </div>
+  </form>
+  <form>
+    <div>
+      Stat Generation Method:
+      <input type="radio" name="genmethod" value="distribute" checked> Distribution
+      <input type="radio" name="genmethod" value="random"> Random
+    </div>
+  </form>
+</body>
+</html>

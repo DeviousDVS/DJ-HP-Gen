@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <script>window.$ = window.jQuery = require('jquery');</script>
+    <script src="data_access.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var category = [["mmcat", "mrcat", "pmcat", "pncat", "smcat", "spcat"],
+                      ["pmcat", "pncat", "mmcat", "mrcat", "smcat", "spcat"],
+                      ["smcat", "spcat", "mmcat", "mrcat", "pmcat", "pncat"]];
+      function showAuth(){
+        if (checkAuth()) {
+          document.getElementById("auth").style.display = 'none';
+        }
+      }
+
+      function submitToken(token) {
+        tokenise(token);
+        document.getElementById("auth").style.display = 'none';
+      }
+
+      function menuSelect(page) {
+        var main = document.getElementsByClassName('main');
+        for (var i = 0; i < main.length; i++) {
+          main[i].style.zIndex = 10;
+        }
+        document.getElementById(page).style.zIndex = 20;
+      }
+
+      function getSubPage(page) {
+        return document.getElementById(page).getElementsByTagName('object')[0].contentDocument;
+      }
+
+      function rollSEC() {
+        getData('rollSEC', '', function(sec) {
+          getSubPage('basic').getElementById('sec').value = sec.name;
+          getVocations(sec.value);
+        });
+      }
+
+      function getVocations(sec) {
+        getData('getVocations', sec, function(vocations) {
+          var select = getSubPage('basic').getElementById('vocation');
+          select.options.length = 0;
+          for (var i = 0; i < vocations.length; i++) {
+            select.options[i] = new Option(vocations[i], vocations[i]);
+          }
+        });
+      }
+
+      function getStatRolls(random) {
+        getData('getStatRolls', random, function(rolls) {
+          var select = getSubPage('basic').getElementById('vocation');
+          placeStats(rolls);
+        });
+      }
+      function placeStats(rolls) {
+        for (var i = 0; i < category[0].length; i++) {
+          getSubPage('basic').getElementById(category[1][i]).value = rolls[i];
+        }
+      }
+    </script>
+    <div id="auth">
+      <form action="javascript:;" onsubmit="submitToken(getElementById('token').value)">
+        Enter Google authorisation:<br>
+        <input id="token" name="token" type="text" style="width:200px"><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <script>
+      showAuth();
+      rollSEC();
+      getStatRolls();
+    </script>
+    <div>
+<!--<h2>STEPS IN HP CREATION</h2>-->
+
+<div class="menu" onclick="menuSelect('basic')"><p>Basic Details</p></div>
+<div class="menu" onclick="menuSelect('ksareas')"><p>Knowledge &amp; Skills</p></div>
+<div class="menu" onclick="menuSelect('combat')"><p>Weapons &amp; Armour</p></div>
+<div class="menu" onclick="menuSelect('possessions')"><p>Possessions</p></div>
+<div class="menu" onclick="menuSelect('castings')"><p>Castings &amp; Heka</p></div>
+<div class="menu" onclick="menuSelect('background')"><p>General Information</p></div>
+
+<div class="main" id="ksareas">
+  <object type="text/html" data="ksareas.html"></object>
+</div>
+<div class="main" id="combat">
+  <object type="text/html" data="combat.html" ></object>
+</div>
+<div class="main" id="possessions">
+  <object type="text/html" data="possessions.html" ></object>
+</div>
+<div class="main" id="castings">
+  <object type="text/html" data="castings.html" ></object>
+</div>
+<div class="main" id="background">
+  <object type="text/html" data="background.html" ></object>
+</div>
+<div class="main" id="basic">
+  <object type="text/html" data="basic.html"></object>
+</div>
+
+    </div>
+    <!--<script>getAnimals()</script>-->
+  </body>
+</html>
